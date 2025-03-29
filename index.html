@@ -149,7 +149,7 @@
 
         // Function to fetch station board based on station ID
         async function fetchStationBoard(stationId) {
-            const url = `https://transport.opendata.ch/v1/stationboard?id=${stationId}&limit=7`;
+            const url = `https://transport.opendata.ch/v1/stationboard?id=${stationId}&limit=10`;
             const response = await fetch(url);
             if (!response.ok) {
                 throw new Error('Failed to fetch station board');
@@ -193,7 +193,7 @@
                 const stationboard = stationBoardData.stationboard || [];
                 
                 // Get 7 entries
-                for (let i = 0; i < Math.min(7, stationboard.length); i++) {
+                for (let i = 0; i < Math.min(10, stationboard.length); i++) {
                     const connection = stationboard[i];
                     const departureTime = connection.stop?.departure;
                     
